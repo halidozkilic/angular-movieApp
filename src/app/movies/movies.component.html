@@ -1,0 +1,43 @@
+
+<div class="card">
+
+    <div class="card-header">
+        {{title}}
+    </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let movie of movies"
+        
+         class="list-group-item"  routerLink='/detail/{{movie.id}}' >
+            <span class="badge badge-primary">{{movie.id}}</span> {{movie.name}}
+            <span class="close" (click)="delete(movie)">x</span> 
+
+        </li>   
+
+
+    </ul>
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        add movie
+    </div> 
+    <div class="card-body">
+        <div class="form-group">
+            name  <label for="name"></label>
+              <input #name class="form-control">
+          </div>
+  
+          <div class="form-group">
+             imageUrl <label for="imageUrl"></label>
+              <input #imageUrl  class="form-control">
+          </div>
+  
+          <div class="form-group">
+             description <label for="description"></label>
+              <input #description  class="form-control">
+          </div>
+          
+          <button class="btn btn-dark" (click)="add(name.value,imageUrl.value,description.value);  name.value=null; imageUrl.value=''; description.value='';">add</button>
+    </div>
+</div>
